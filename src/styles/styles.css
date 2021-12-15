@@ -8,3 +8,19 @@
     padding: 3px;
     border: 1px solid gray;
 }
+.container{
+    display:flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 40px;
+    
+}
+.fondo-oscuro{
+    background-color: rgb(83, 81, 81);
+
+}
+
+.fondo-claro{
+    background-color: rgb(236, 231, 231);
+}
+

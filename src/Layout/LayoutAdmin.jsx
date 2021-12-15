@@ -1,11 +1,13 @@
 import React from "react";
-import {Outlet} from 'react-router-dom';
+import { Outlet } from "react-router-dom";
+import Button from "../components/Button";
 
 const LayoutAdmin = () => {
   return (
     <div>
       <nav>Es es el navbar de admin</nav>
-        <Outlet/>
+      <Button />
+      <Outlet />
     </div>
   );
 };
