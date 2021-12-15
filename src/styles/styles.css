@@ -1,3 +1,10 @@
 .fondo{
     background-color: rgb(223, 209, 209);
 }
+
+.button{
+  
+    cursor: pointer;
+    padding: 3px;
+    border: 1px solid gray;
+}

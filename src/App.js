@@ -1,4 +1,4 @@
-import Index from './pages/Index';
+import Index1 from './pages/Index1';
 import './styles/styles.css'
 import {
   BrowserRouter as Router,
@@ -6,21 +6,28 @@ import {
   Route
 } from "react-router-dom";
 import Contacto from './pages/Contacto';
+import Index from './pages/Index';
+import Layout from './Layout/Layout';
 
 function App() {
   return (
     <div>
       <Router>
-        <Switch>
-          <Route path='/contacto'>
-            <Contacto />
-          </Route>
-          <Route path='/'>
-            <Index />
-          </Route>
-        </Switch>
+        <Layout>
+          <Switch>
+            <Route path='/contacto' exact>
+              <Contacto />
+            </Route>
+            <Route path='/hooks1' exact>
+              <Index1 />
+            </Route>
+            <Route path='/' exact>
+              <Index />
+            </Route>
+          </Switch>
+        </Layout>
       </Router>
-      
+
     </div>
   );
 }

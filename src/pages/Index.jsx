@@ -1,35 +1,45 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
+import Button from '../components/Button';
+
 
 const Index = () => {
-  const [variable1, setVariable1] = useState("hola mundo soy un estado");
-  const [valorInput, setValorInput] = useState("");
+  const [valor1, setValor1] = useState(0);
+  const [valor2, setValor2] = useState(0);
+  
+  useEffect(()=>{
+    console.log("yo me ejecuto solo, no tengo cambios a estar pendiente")
+  }) //no es recomendado
 
-    useEffect(()=>{
-        console.log('Cambio variable 1 y el valor es', variable1);
-    }, [variable1]);
+  useEffect(()=>{
+    console.log("useEffect vacio se ejecuta una sola vez ya que su estado [] no cambia nunca")
+  },[])
+  
+
+  useEffect(() => {
+    console.log("cambio alguno de los valores ahora son: valor 1 = " ,  valor1 , "y valor 2 = : ", valor2);
+  }, [valor1, valor2]);
+//   useEffect(() => {
+//     console.log("cambio valor 1 y ahora es", valor2);
+//   }, [valor2]);
+
   return (
     <div>
-      <div className="fondo">
-        <span>El valor de la variable es: </span>
-        {variable1}
-      </div>
-
       <input
-        value={valorInput}
-        onChange={(e) => {
-          setValorInput(e.target.value);
-        }}
-        type="text"
-        placeholder="ingrese el nuevo valor de variable 1"
+        value={valor1}
+        onChange={(e) => setValor1(parseInt(e.target.value))}
+        placeholder="valor 1"
+        type="number"
       />
-
-      <button
-        onClick={() => {
-          setVariable1(valorInput);
-        }}
-      >
-        click para enviar
-      </button>
+      <input
+        value={valor2}
+        onChange={(e) => setValor2(parseInt(e.target.value))}
+        placeholder="valor 2"
+        type="number"
+      />
+      <span>La suma de los numeros 1 y 2 es: {(valor1 +  valor2)}</span>
+      <Button />
+      <Button color='red'/>
+      <Button color='green'/>
     </div>
   );
 };
